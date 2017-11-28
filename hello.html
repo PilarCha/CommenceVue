@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="vue.js"></script>
+
+    <title>Hello You devil</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-on:input='changeMessage'>
+      <h1>{{sayHello()}}</h1>
+    </div>
+    <script>
+    new Vue({
+      el:'#app',
+      data:{
+        message:'Its a me a Mario!'
+      },
+      methods:{
+        sayHello:function(){
+          return 'Time to sleep!!'
+        }
+      }
+    })
+
+    </script>
+  </body>
+</html>
