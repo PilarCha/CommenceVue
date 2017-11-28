@@ -3,27 +3,38 @@
   <head>
     <meta charset="utf-8">
     <script src="vue.js"></script>
-
-    <title>Hello You devil</title>
+    <title>Reacting to changes</title>
   </head>
   <body>
     <div id="app">
-      <input type="text" v-on:input='changeMessage'>
-      <h1>{{sayHello()}}</h1>
+      <button v-on:click="counter++">Increase</button>
+      <button v-on:click="counter--">Decrease</button>
+      <button v-on:click="secondCounter++">Increase 2nd counter</button>
+      <button v-on:click="secondCounter--">Decrease 2nd counter</button>
+
+      <h1>Counter: {{counter}} | {{secondCounter}}</h1>
+      <h1>Result: {{result()}} | {{output}}</h1>
     </div>
     <script>
     new Vue({
       el:'#app',
       data:{
-        message:'Its a me a Mario!'
+        counter:0,
+        secondCounter:0
+      },
+      computed:{
+        output:function(){
+          return this.secondCounter> 5 ? "2nd counter greater than 5" : "2nd counter less than 5"
+        }
       },
       methods:{
-        sayHello:function(){
-          return 'Time to sleep!!'
+        result(){
+          return this.counter> 5 ? "greater than 5" : "less than 5"
         }
       }
     })
 
     </script>
+
   </body>
 </html>
